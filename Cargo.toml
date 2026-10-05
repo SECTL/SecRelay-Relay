@@ -1,0 +1,28 @@
+[package]
+name = "secrelay-relay"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.82"
+description = "SecRelay 的信令与中继服务：无账号验证、零知识、带配额与观测"
+repository = "https://github.com/lzy98276/SecRelay-Relay"
+publish = false
+# 许可证待定：主仓库是 GPLv3，但中继是网络服务，是否改用 AGPLv3 尚未决定。
+# 见 docs/设计.md §11 R4。定下来之前不要假定许可证。
+
+[dependencies]
+axum = { version = "0.8", features = ["ws"] }
+tokio = { version = "1", features = ["rt-multi-thread", "macros", "net", "signal", "time", "sync"] }
+futures-util = "0.3"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+uuid = { version = "1", features = ["v4"] }
+hmac = "0.12"
+sha1 = "0.10"
+base64 = "0.22"
+thiserror = "2"
+
+[profile.release]
+lto = "thin"
+codegen-units = 1
