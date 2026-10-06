@@ -1,4 +1,4 @@
-//! SecRelay-Relay：SecRelay 的信令与中继服务。
+﻿//! SecRelay-Relay：SecRelay 的信令与中继服务。
 //!
 //! # 两条硬约束
 //!
@@ -13,6 +13,7 @@
 
 mod api;
 mod config;
+mod identity;
 mod metrics;
 mod quota;
 mod signaling;
